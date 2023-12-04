@@ -1,0 +1,6 @@
+CMakeCache.txt
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+CMakeFiles/
+Doxyfile
+doc_doxygen/
