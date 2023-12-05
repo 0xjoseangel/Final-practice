@@ -1,3 +1,6 @@
+#ifndef __PAISES__
+#define __PAISES__
+
 /**
  * @file Paises.h
  * @author Jesús Rodríguez
@@ -203,3 +206,5 @@ class Paises{
          */
         friend ostream & operator<<(ostream & os, const Paises &R);
 };
+
+#endif
