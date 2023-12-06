@@ -43,26 +43,53 @@ private:
      */
     void Borrar();
 public:
-    class iterador {
+    class iteradorImagen {
     private:
         Pixel * ptr;
         Imagen& imagen;  
         int currentRow;     
         int currentCol;
     public:
-        iterador();
-        iterador(const iterador &v);
-        ~iterador();
-        iterador & operator=(const iterador& orig);
+        iteradorImagen(Imagen& img);
+        iteradorImagen(Imagen& img, Pixel* start, int cols, int fils); // hace mas comod el end()
+        iteradorImagen(const iteradorImagen &v);
+        iteradorImagen & operator=(const iteradorImagen& orig);
         Pixel & operator*() const;
-        iterador & operator++();
-        iterador & operator--();
-        bool operator!=(const iterador& v) const;
-        bool operator==(const iterador& v) const;
+        iteradorImagen & operator++();
+        iteradorImagen & operator--();
+        bool operator!=(const iteradorImagen& v) const;
+        bool operator==(const iteradorImagen& v) const;
+        // Get set
+        int getCurrentRow() const;
+        int getCurrentCol() const;
 
     };
-    Imagen();
+    class const_iteradorImagen {
+    private:
+        Pixel *ptr;
+        const Imagen &imagen;
+        int currentRow;
+        int currentCol;
 
+    public:
+        const_iteradorImagen(const Imagen &img);
+        const_iteradorImagen(const Imagen &img, Pixel *start, int cols, int fils);
+        const_iteradorImagen(const const_iteradorImagen &v);
+        // Al ser unc const iterator no permitimos modificar la imagen, por tanto el operador
+        // de asignacion no esta permitido
+        //const_iteradorImagen &operator=(const const_iteradorImagen &orig);
+        const Pixel &operator*() const;
+        const_iteradorImagen &operator++();
+        const_iteradorImagen &operator--();
+        bool operator!=(const const_iteradorImagen &v) const;
+        bool operator==(const const_iteradorImagen &v) const;
+        // Get set
+        int getCurrentRow() const;
+        int getCurrentCol() const;
+    };
+
+    Imagen();
+    
     Imagen(int f,int c);
 
     Imagen(const Imagen & I);
@@ -74,7 +101,7 @@ public:
     //set y get
     Pixel & operator ()(int i,int j);
 
-    const Pixel & operator ()(int i,int j)const;
+    const Pixel & operator ()(int i,int j) const;
 
     void EscribirImagen(const char * nombre);
 
@@ -84,5 +111,13 @@ public:
     int num_cols()const{return nc;}
     void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
     Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+    // Métodos para el iterador
+    iteradorImagen begin();
+    iteradorImagen end();
+    // Métodos para el iterador constante
+    const_iteradorImagen begin() const;
+    const_iteradorImagen end() const;
+        
+
 };   
 #endif

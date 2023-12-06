@@ -8,3 +8,7 @@ doc_doxygen/
 Makefile
 cmake_install.cmake
 libimage.a
+pruebamia
+pruebarotacion
+pruebapegado
+test/
