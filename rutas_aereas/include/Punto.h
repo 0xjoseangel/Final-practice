@@ -92,6 +92,28 @@ class Punto{
          */
         bool operator==(const Punto &p) const;
 
+              /**
+         * @brief Sobrecarga del operador != para el tipo Punto.
+         * 
+         * Un objeto tipo Punto será distinto a otro si su latitud 
+         * o longitud no son iguales.
+         * 
+         * @param p Objeto tipo punto con el que se compara. 
+         * @return true si latitud o longitud no coinciden.
+         * @return false si ambas coinciden.
+         */
+        bool operator!=(const Punto &p) const;
+
+        
+        /**
+         * @brief Sobrecarga del operador >> para el tipo Punto.
+         * 
+         * @param is Flujo de entrada.
+         * @param p Objeto tipo Punto a leer.
+         * @return istream& Flujo de entrada.
+         */
+        friend istream & operator>>(istream &is, Punto &p);
+
         /**
          * @brief Sobrecarga del operador >> para el tipo Pais.
          * 
@@ -109,15 +131,17 @@ class Punto{
          * @return ostream& Flujo de salida.
          */
         friend ostream & operator<<(ostream &os, const Pais &P);
-};
 
-/**
- * @brief Sobrecarga del operador << para el tipo Punto.
- * 
- * @param os Flujo de salida.
- * @param p Objeto tipo Punto a escribir.
- * @return ostream& Flujo de salida.
- */
-ostream & operator<<(ostream &os, const Punto &p);
+
+        /**
+         * @brief Sobrecarga del operador << para el tipo Punto.
+         * 
+         * @param os Flujo de salida.
+         * @param p Objeto tipo Punto a escribir.
+         * @return ostream& Flujo de salida.
+         */
+        friend ostream & operator<<(ostream &os, const Punto &p);
+        
+};
 
 #endif

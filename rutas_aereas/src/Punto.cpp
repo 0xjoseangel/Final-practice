@@ -8,10 +8,15 @@
  */
 
 #include "Punto.h"
+#include <cassert>
 
 Punto::Punto():latitud(0), longitud(0){}
 
-Punto::Punto(double l, double L, const string &d):latitud(l), longitud(L){}
+Punto::Punto(double l, double L, const string &d){
+    assert(-90<=l<=90 && -180<=L<=180);
+    this->latitud=l;
+    this->longitud=L;
+}
 
 double Punto::GetLatitud() const{
     return this->latitud;
@@ -22,20 +27,34 @@ double Punto::GetLongitud() const{
 }
 
 void Punto::SetLatitud(double l){
+    assert(-90<=l<=90);
     this->latitud=l;
 }
 
-
 void Punto::SetLongitud(double L){
+    assert(-180<=L<=180);
     this->longitud=L;
 }
 
 bool Punto::operator<(const Punto &p) const{
-    return (this->GetLatitud()+this->GetLongitud()) < (p.GetLatitud()+p.GetLongitud());
+    return (this->GetLongitud()) < (p.GetLongitud());
 }
 
 bool Punto::operator==(const Punto &p) const{
-    return (this->GetLatitud()+this->GetLongitud()) == (p.GetLatitud()+p.GetLongitud());
+    return ((this->GetLatitud() == p.GetLatitud()) &&
+     (this->GetLongitud() == p.GetLongitud()));
+}
+
+bool Punto::operator!=(const Punto &p) const{
+    return ((this->GetLatitud() != p.GetLatitud()) ||
+     (this->GetLongitud() != p.GetLongitud()));
+}
+
+istream & operator>>(istream &is, Punto &p){
+    char aux;
+    // Leemos omitiendo los paréntesis y la coma
+    is >> aux >> p.latitud >> aux >> p.longitud >> aux;
+    return is;
 }
 
 ostream & operator<<(ostream &os, const Punto &p){

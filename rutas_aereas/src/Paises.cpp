@@ -38,11 +38,11 @@ Paises::iterator & Paises::iterator::operator--(){
 }
 
 bool Paises::iterator::operator==(const iterator &it) const{
-	return this->p == it.p;
+	return (this->p == it.p);
 }
 
 bool Paises::iterator::operator!=(const iterator &it) const{
-	return this->p != it.p;
+	return (this->p != it.p);
 }
 
 // Métodos de la clase const_iterator
