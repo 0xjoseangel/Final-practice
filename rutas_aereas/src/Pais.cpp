@@ -47,3 +47,7 @@ ostream & operator<<(ostream & os, const Pais &P){
 	return os;
 }
     
+ostream & operator<<(ostream & os, const Punto &p){
+	os<<"("<<p.latitud<<","<<p.longitud<<")";
+	return os;
+}
