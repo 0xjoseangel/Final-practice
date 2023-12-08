@@ -36,22 +36,14 @@ void Imagen::Allocate(int f, int c){
         } 
     }
 }
-// void Imagen::Copiar(const Imagen &I) {
-//     Allocate(I.nf, I.nc);
-//     for (const_iteradorImagen it = I.begin(); it != I.end(); ++it) {
-//         // Obtener las coordenadas actuales del iterador
-//         int fila = it.getCurrentRow();
-//         int col = it.getCurrentCol();
-//         // Copiar el píxel de la imagen original a la imagen actual
-//         data[fila][col] = *it;
-//     }
-// }
 void Imagen::Copiar(const Imagen &I) {
     Allocate(I.nf, I.nc);
-    for (int i = 0; i < nf; ++i) {
-        for (int j = 0; j < nc; ++j) {
-            data[i][j] = I.data[i][j];
-        }
+    for (const_iteradorImagen it = I.begin(); it != I.end(); ++it) {
+        // Obtener las coordenadas actuales del iterador
+        int fila = it.getCurrentRow();
+        int col = it.getCurrentCol();
+        // Copiar el píxel de la imagen original a la imagen actual
+        data[fila][col] = *it;
     }
 }
 
@@ -74,7 +66,7 @@ Imagen::Imagen(const Imagen & I) {
     Copiar(I);
 }
 
-Imagen & Imagen::operator= (const Imagen & I){
+Imagen & Imagen::operator=(const Imagen & I){
     if (this != &I){
         Borrar();
         Copiar(I);
@@ -223,6 +215,7 @@ Imagen::iteradorImagen & Imagen::iteradorImagen::operator++() {
         currentCol = 0;
         currentRow++;
     }
+    ptr = &imagen(currentRow, currentCol);
     return *this;
 }
 Imagen::iteradorImagen & Imagen::iteradorImagen::operator--() {
@@ -234,6 +227,7 @@ Imagen::iteradorImagen & Imagen::iteradorImagen::operator--() {
             currentCol = imagen.num_cols() - 1;
         }   
     }
+    ptr = &imagen(currentRow, currentCol);
     return *this;
 }
 bool Imagen::iteradorImagen::operator!=(const iteradorImagen& v) const {
@@ -264,6 +258,7 @@ Imagen::const_iteradorImagen & Imagen::const_iteradorImagen::operator++() {
         currentCol = 0;
         currentRow++;
     }
+    ptr = &imagen(currentRow, currentCol);
     return *this;
 }
 Imagen::const_iteradorImagen & Imagen::const_iteradorImagen::operator--() {
@@ -275,6 +270,7 @@ Imagen::const_iteradorImagen & Imagen::const_iteradorImagen::operator--() {
             currentCol = imagen.num_cols() - 1;
         }   
     }
+    ptr = &imagen(currentRow, currentCol);
     return *this;
 }
 bool Imagen::const_iteradorImagen::operator!=(const const_iteradorImagen& v) const {
