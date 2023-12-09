@@ -7,47 +7,53 @@
  * 
  */
 
-#include "Pais.h"
+#include "Punto.cpp"
 
-Pais::Pais():pais("none"), bandera("none"){}
+class Pais{
 
-Pais::Pais(const Punto &punto, string Pais, string Bandera):
-    p(punto), pais(Pais), bandera(Bandera) {}
+	private:
 
-Punto Pais::GetPunto() const {return p;}
+  		Punto p;
+        string pais;
+        string bandera;
 
-string Pais::GetPais() const {return pais;}
+	public:	
 
-string Pais::GetBandera() const {return bandera;}
+		Pais():pais("none"), bandera("none"){}
 
-bool Pais::operator<(const Pais &p) const{
-    return this->GetPais() < p.GetPais();
-}
+		Pais(const Punto &punto, string Pais, string Bandera):
+			p(punto), pais(Pais), bandera(Bandera) {}
 
-bool Pais::operator==(const Pais &p) const{
-    return this->GetPunto() == p.GetPunto() && this->GetPais() == p.GetPais() &&
-        this->GetBandera() == p.GetBandera();
-}
+		Punto GetPunto() const {return p;}
 
-bool Pais::operator==(const Punto &P) const{
-    return this->GetPunto() == p;
-}
+		string GetPais() const {return pais;}
 
-istream & operator>>(istream & is, Pais & P){
-    double lat,lng;
-	
-	is>>lat>>lng>>P.pais>>P.bandera;
-	
-	P.p=Punto(lat,lng,"");
-	return is;
-}
+		string GetBandera() const {return bandera;}
 
-ostream & operator<<(ostream & os, const Pais &P){
-	os<<P.p<<" "<<P.pais<<" "<<P.bandera<<endl;
-	return os;
-}
-    
-ostream & operator<<(ostream & os, const Punto &p){
-	os<<"("<<p.latitud<<","<<p.longitud<<")";
-	return os;
-}
+		bool operator<(const Pais &p) const{
+			return this->GetPais() < p.GetPais();
+		}
+
+		bool operator==(const Pais &p) const{
+			return this->GetPunto() == p.GetPunto() && this->GetPais() == p.GetPais() &&
+				this->GetBandera() == p.GetBandera();
+		}
+
+		bool operator==(const Punto &P) const{
+			return this->GetPunto() == p;
+		}
+
+		friend istream & operator>>(istream & is, Pais & P){
+			double lat,lng;
+			
+			is>>lat>>lng>>P.pais>>P.bandera;
+			
+			P.p=Punto(lat,lng,"");
+			return is;
+		}
+
+		friend ostream & operator<<(ostream & os, const Pais &P){
+			os<<P.p<<" "<<P.pais<<" "<<P.bandera<<endl;
+			return os;
+		}
+};

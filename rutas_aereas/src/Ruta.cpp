@@ -7,156 +7,191 @@
  * 
  */
 
-#include "Ruta.h"
+#include "Paises.cpp"
+#include <list>
 #include <algorithm>
+using namespace std;
 
 // Métodos de la clase Ruta.
 
-Ruta::Ruta():code("none"){}
+class Ruta{
 
-void Ruta::Insertar(const Punto &n){
-    puntos.push_back(n);
-}
+    private:
 
-void Ruta::Borrar(const Punto &n){
-    list<Punto>::iterator p = std::find(puntos.begin(), puntos.end(), n);
-    if (p != puntos.end())
-        puntos.erase(p);    
-}
+        list<Punto> puntos;
+        string code;
+    
+    public:
 
-int Ruta::GetSize() const{
-    return puntos.size();
-}
 
-string Ruta::GetCode() const{
-    return this->code;
-}
+        Ruta():code("none"){}
 
-void Ruta::SetCode(const string &cod){
-    this->code = cod;
-}
+        void Insertar(const Punto &n){
+            puntos.push_back(n);
+        }
 
-// Métodos de la clase iterator
+        void Borrar(const Punto &n){
+            list<Punto>::iterator p = std::find(puntos.begin(), puntos.end(), n);
+            if (p != puntos.end())
+                puntos.erase(p);    
+        }
 
-const Punto & Ruta::const_iterator::operator*() const{
-    return *p;
-}
+        int GetSize() const{
+            return puntos.size();
+        }
 
-Ruta::const_iterator & Ruta::const_iterator::operator++(){
-    ++p;
-    return *this;
-}
+        string GetCode() const{
+            return this->code;
+        }
 
-Ruta::const_iterator & Ruta::const_iterator::operator--(){
-    --p;
-    return *this;
-}
+        void SetCode(const string &cod){
+            this->code = cod;
+        }
 
-bool Ruta::const_iterator::operator==(const const_iterator &it) const{
-    return (this->p == it.p);
-}
+        // Métodos de la clase const_iterator
 
-bool Ruta::const_iterator::operator!=(const const_iterator &it) const{
-    return (this->p != it.p);
-}
+        class const_iterator{
 
-// Métodos de la clase const_iterator
+            private:
 
-const Punto & Ruta::iterator::operator*() const{
-    return *p;
-}
+                list<Punto>::const_iterator p;
 
-Ruta::iterator & Ruta::iterator::operator++(){
-    ++p;
-    return *this;
-}
+            public:
 
-Ruta::iterator & Ruta::iterator::operator--(){
-    --p;
-    return *this;
-}
+                const Punto & operator*() const{
+                    return *p;
+                }
 
-bool Ruta::iterator::operator==(const iterator &it) const{
-    return (this->p == it.p);
-}
+                const_iterator & operator++(){
+                    ++p;
+                    return *this;
+                }
 
-bool Ruta::iterator::operator!=(const iterator &it) const{
-    return (this->p != it.p);
-}
+                const_iterator & operator--(){
+                    --p;
+                    return *this;
+                }
 
-// Resto de métodos de la clase Ruta
+                bool operator==(const const_iterator &it) const{
+                    return (this->p == it.p);
+                }
 
-Ruta::iterator Ruta::begin(){
-    iterator it;
-    it.p = puntos.begin();
-    return it;
-}
+                bool operator!=(const const_iterator &it) const{
+                    return (this->p != it.p);
+                }
 
-Ruta::const_iterator Ruta::begin() const{
-    const_iterator it;
-    it.p = puntos.begin();
-    return it;
-}
+                friend class Ruta;
+        };
 
-Ruta::iterator Ruta::end(){
-    iterator it;
-    it.p = puntos.end();
-    return it;
-}
+        // Métodos de la clase iterator
 
-Ruta::const_iterator Ruta::end() const{
-    const_iterator it;
-    it.p = puntos.end();
-    return it;
-}
+        class iterator{
 
-Ruta::iterator Ruta::find(const Punto &p){
-    list<Punto>::iterator it;
-    it = std::find(puntos.begin(), puntos.end(), p);
-    iterator sol;
-    sol.p = it;
-    return sol;
-}
+            private:
 
-bool Ruta::operator==(const Ruta &R) const{
-    if (this->GetSize() != R.GetSize())
-        return false;
-    else{
-        const_iterator p, q;
-        p=this->begin();
-        q=R.begin();
-        for (p=this->begin(); p!=this->end(); ++p, ++q)
-            if (*p != *q)
+                list<Punto>::iterator p;
+
+            public:
+
+                const Punto & operator*() const{
+                    return *p;
+                }
+
+                iterator & operator++(){
+                    ++p;
+                    return *this;
+                }
+
+                iterator & operator--(){
+                    --p;
+                    return *this;
+                }
+
+                bool operator==(const iterator &it) const{
+                    return (this->p == it.p);
+                }
+
+                bool operator!=(const iterator &it) const{
+                    return (this->p != it.p);
+                }
+
+                friend class Ruta;
+            };
+
+        // Resto de métodos de la clase Ruta
+
+        iterator begin(){
+            iterator it;
+            it.p = puntos.begin();
+            return it;
+        }
+
+        const_iterator begin() const{
+            const_iterator it;
+            it.p = puntos.begin();
+            return it;
+        }
+
+        iterator end(){
+            iterator it;
+            it.p = puntos.end();
+            return it;
+        }
+
+        const_iterator end() const{
+            const_iterator it;
+            it.p = puntos.end();
+            return it;
+        }
+
+        iterator find(const Punto &p){
+            list<Punto>::iterator it;
+            it = std::find(puntos.begin(), puntos.end(), p);
+            iterator sol;
+            sol.p = it;
+            return sol;
+        }
+
+        bool operator==(const Ruta &R) const{
+            if (this->GetSize() != R.GetSize())
                 return false;
-        return true;
-    }
-}
+            else{
+                const_iterator p, q;
+                p=this->begin();
+                q=R.begin();
+                for (p=this->begin(); p!=this->end(); ++p, ++q)
+                    if (*p != *q)
+                        return false;
+                return true;
+            }
+        }
 
-bool Ruta::operator<(const Ruta &R) const{
-    return (this->GetSize() < R.GetSize());
-}
+        bool operator<(const Ruta &R) const{
+            return (this->GetSize() < R.GetSize());
+        }
 
-istream & operator>>(istream &is, Ruta &R){
-    Ruta aux;
-    Punto p;
-    int n_puntos;
-    is>>aux.code;
-    is>>n_puntos;
-    for(int i = 0 ; i < n_puntos ; i++){
-        is>>p;
-        aux.Insertar(p);
-    }
-    R = aux;
-    return is;
-}
+        friend istream & operator>>(istream &is, Ruta &R){
+            Ruta aux;
+            Punto p;
+            int n_puntos;
+            is>>aux.code;
+            is>>n_puntos;
+            for(int i = 0 ; i < n_puntos ; i++){
+                is>>p;
+                aux.Insertar(p);
+            }
+            R = aux;
+            return is;
+        }
 
-ostream & operator<<(ostream &os, const Ruta &R){
-    os<<R.code<<" "<<R.GetSize()<<" ";
-    for(Ruta::const_iterator it = R.begin() ; it != R.end() ; ++it)
-        os<<*it<<" ";
-    os << endl;
-    return os;
-}
+        friend ostream & operator<<(ostream &os, const Ruta &R){
+            os<<R.code<<" "<<R.GetSize()<<" ";
+            for(Ruta::const_iterator it = R.begin() ; it != R.end() ; ++it)
+                os<<*it<<" ";
+            os << endl;
+            return os;
+        }
+};
 
 
 

@@ -7,135 +7,163 @@
  * 
  */
 
-#include "Paises.h"
+#include "Pais.cpp"
+#include <set>
 
-Paises::Paises(){}
+class Paises{
 
-// Métodos de la clase Paises
+	private:
+		set<Pais> datos;
 
-void Paises::Insertar(const Pais &p){
-    datos.insert(p);
-}
+	public:
 
-void Paises::Borrar(const Pais &p){
-    datos.erase(p);
-}
+			
+		Paises(){}
 
-// Métodos de la clase iterator
+		// Métodos de la clase Paises
 
-const Pais & Paises::iterator::operator*() const{
-	return *p;
-}
+		void Insertar(const Pais &p){
+			datos.insert(p);
+		}
 
-Paises::iterator & Paises::iterator::operator++(){
-	++p;
-	return *this;
-}
+		void Borrar(const Pais &p){
+			datos.erase(p);
+		}
 
-Paises::iterator & Paises::iterator::operator--(){
-	--p;
-	return *this;
-}
+		// Métodos de la clase iterator
+		class iterator{
+			private:
+				set<Pais>::iterator p;
 
-bool Paises::iterator::operator==(const iterator &it) const{
-	return (this->p == it.p);
-}
+			public:
 
-bool Paises::iterator::operator!=(const iterator &it) const{
-	return (this->p != it.p);
-}
+				const Pais & operator*() const{
+					return *p;
+				}
 
-// Métodos de la clase const_iterator
+				iterator & operator++(){
+					++p;
+					return *this;
+				}
 
-const Pais & Paises::const_iterator::operator*() const{
-	return *p;
-}
+				iterator & operator--(){
+					--p;
+					return *this;
+				}
 
-Paises::const_iterator & Paises::const_iterator::operator++(){
-	++p;
-	return *this;
-}
+				bool operator==(const iterator &it) const{
+					return (this->p == it.p);
+				}
 
-Paises::const_iterator & Paises::const_iterator::operator--(){
-	--p;
-	return *this;
-}
+				bool operator!=(const iterator &it) const{
+					return (this->p != it.p);
+				}
 
-bool Paises::const_iterator::operator==(const const_iterator &it) const{
-	return this->p == it.p;
-}
+				friend class Paises;
+		};
+		// Métodos de la clase const_iterator
 
-bool Paises::const_iterator::operator!=(const const_iterator &it) const{
-	return this->p != it.p;
-}
+		class const_iterator{
 
-// Resto de métodos de la clase Paises
+			private:
 
-istream & operator>>(istream & is, Paises & R){
-    Paises rlocal;
-    //leemos el comentario
-	if (is.peek()=='#'){
-	    string a;
-    	getline(is,a);
-	}	
-	      
-	Pais P;
-	while (is>>P){
-	     rlocal.Insertar(P);
-		
-	}
-	R=rlocal;
-	return is;
-}
+				set<Pais>::const_iterator p;
 
-Paises::iterator Paises::begin(){
-	iterator it;
-	it.p = datos.begin();
-	return it;
-}
+			public:
 
-Paises::const_iterator Paises::begin() const{
-	const_iterator it;
-	it.p = datos.begin();
-	return it;
-}
+				const Pais & operator*() const{
+					return *p;
+				}
 
-Paises::iterator Paises::end(){
-	iterator it;
-	it.p = datos.end();
-	return it;
-}
+				const_iterator & operator++(){
+					++p;
+					return *this;
+				}
 
-Paises::const_iterator Paises::end() const{
-	const_iterator it;
-	it.p = datos.end();
-	return it;
-}
+				const_iterator & operator--(){
+					--p;
+					return *this;
+				}
 
-Paises::iterator Paises::find(const Pais &p){
-	iterator it;
-	it.p = datos.find(p);
-	return it;
-}
+				bool operator==(const const_iterator &it) const{
+					return this->p == it.p;
+				}
 
-Paises::const_iterator Paises::find(const Punto &p){
-	const_iterator it;
-	for (it.p=datos.begin(); it.p!=datos.end(); ++it.p){
-		if ((it.p)->GetPunto() == p)
+				bool operator!=(const const_iterator &it) const{
+					return this->p != it.p;
+				}
+
+				friend class Paises;
+		};
+
+		// Resto de métodos de la clase Paises
+
+		friend istream & operator>>(istream & is, Paises & R){
+			Paises rlocal;
+			//leemos el comentario
+			if (is.peek()=='#'){
+				string a;
+				getline(is,a);
+			}	
+				
+			Pais P;
+			while (is>>P){
+				rlocal.Insertar(P);
+				
+			}
+			R=rlocal;
+			return is;
+		}
+
+		iterator begin(){
+			iterator it;
+			it.p = datos.begin();
 			return it;
-	}
-	const_iterator fin;
-	fin.p=datos.end();
-	return fin; 
-}
+		}
+
+		const_iterator begin() const{
+			const_iterator it;
+			it.p = datos.begin();
+			return it;
+		}
+
+		iterator end(){
+			iterator it;
+			it.p = datos.end();
+			return it;
+		}
+
+		const_iterator end() const{
+			const_iterator it;
+			it.p = datos.end();
+			return it;
+		}
+
+		iterator find(const Pais &p){
+			iterator it;
+			it.p = datos.find(p);
+			return it;
+		}
+
+		const_iterator find(const Punto &p){
+			const_iterator it;
+			for (it.p=datos.begin(); it.p!=datos.end(); ++it.p){
+				if ((it.p)->GetPunto() == p)
+					return it;
+			}
+			const_iterator fin;
+			fin.p=datos.end();
+			return fin; 
+		}
 
 
-ostream & operator<<(ostream & os, const Paises &R){
-	  
-	Paises::const_iterator it;
-    for (it=R.begin(); it!=R.end(); ++it){
-		os<<*it<<"\t";
-    }
-    return os;
-}
+		friend ostream & operator<<(ostream & os, const Paises &R){
+			
+			Paises::const_iterator it;
+			for (it=R.begin(); it!=R.end(); ++it){
+				os<<*it<<"\t";
+			}
+			return os;
+		}
+};
 

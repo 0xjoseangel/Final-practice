@@ -17,9 +17,15 @@ if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebapegado.cpp)
 add_executable(pruebapegado ${BASE_FOLDER}/src/pruebapegado.cpp)
 target_link_libraries(pruebapegado LINK_PUBLIC image)
 endif()
+
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebamia.cpp)
 add_executable(pruebamia ${BASE_FOLDER}/src/pruebamia.cpp)
 target_link_libraries(pruebamia LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/prueba_punto.cpp)
+add_executable(prueba_punto ${BASE_FOLDER}/src/prueba_punto.cpp)
+target_link_libraries(prueba_punto LINK_PUBLIC image)
 endif()
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/ruta_aerea.cpp)

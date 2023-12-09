@@ -7,57 +7,67 @@
  * 
  */
 
-#include "Punto.h"
+#include <iostream>
 #include <cassert>
+using namespace std;
 
-Punto::Punto():latitud(0), longitud(0){}
+class Punto{
+    
+    private:
+    
+        double latitud, longitud;
+    
+    public:
 
-Punto::Punto(double l, double L, const string &d){
-    assert(-90<=l<=90 && -180<=L<=180);
-    this->latitud=l;
-    this->longitud=L;
-}
+        Punto():latitud(0), longitud(0){}
 
-double Punto::GetLatitud() const{
-    return this->latitud;
-}
+        Punto(double l, double L, const string &d){
+            assert(-90<=l<=90 && -180<=L<=180);
+            this->latitud=l;
+            this->longitud=L;
+        }
 
-double Punto::GetLongitud() const{
-    return this->longitud;
-}
+        double GetLatitud() const{
+            return this->latitud;
+        }
 
-void Punto::SetLatitud(double l){
-    assert(-90<=l<=90);
-    this->latitud=l;
-}
+        double GetLongitud() const{
+            return this->longitud;
+        }
 
-void Punto::SetLongitud(double L){
-    assert(-180<=L<=180);
-    this->longitud=L;
-}
+        void SetLatitud(double l){
+            assert(-90<=l<=90);
+            this->latitud=l;
+        }
 
-bool Punto::operator<(const Punto &p) const{
-    return (this->GetLongitud()) < (p.GetLongitud());
-}
+        void SetLongitud(double L){
+            assert(-180<=L<=180);
+            this->longitud=L;
+        }
 
-bool Punto::operator==(const Punto &p) const{
-    return ((this->GetLatitud() == p.GetLatitud()) &&
-     (this->GetLongitud() == p.GetLongitud()));
-}
+        bool operator<(const Punto &p) const{
+            return (this->GetLongitud()) < (p.GetLongitud());
+        }
 
-bool Punto::operator!=(const Punto &p) const{
-    return ((this->GetLatitud() != p.GetLatitud()) ||
-     (this->GetLongitud() != p.GetLongitud()));
-}
+        bool operator==(const Punto &p) const{
+            return ((this->GetLatitud() == p.GetLatitud()) &&
+            (this->GetLongitud() == p.GetLongitud()));
+        }
 
-istream & operator>>(istream &is, Punto &p){
-    char aux;
-    // Leemos omitiendo los paréntesis y la coma
-    is >> aux >> p.latitud >> aux >> p.longitud >> aux;
-    return is;
-}
+        bool operator!=(const Punto &p) const{
+            return ((this->GetLatitud() != p.GetLatitud()) ||
+            (this->GetLongitud() != p.GetLongitud()));
+        }
 
-ostream & operator<<(ostream &os, const Punto &p){
-    os << "(" << p.GetLatitud() << "," << p.GetLongitud() << ")";
-    return os;
-}
+        friend istream & operator>>(istream &is, Punto &p){
+            char aux;
+            // Leemos omitiendo los paréntesis y la coma
+            is >> aux >> p.latitud >> aux >> p.longitud >> aux;
+            return is;
+        }
+
+        friend ostream & operator<<(ostream &os, const Punto &p){
+            os << "(" << p.GetLatitud() << "," << p.GetLongitud() << ")";
+            return os;
+        }
+};
