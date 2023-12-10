@@ -47,7 +47,7 @@ class Almacen_Rutas{
             
             public:
 
-                const pair<string, Ruta> & operator*() const{
+                const pair<string, Ruta> operator*() const{
                     return *p;
                 }
 
@@ -82,7 +82,7 @@ class Almacen_Rutas{
 
             public:
 
-                const pair<string, Ruta> & operator*() const{
+                const pair<string, Ruta> operator*() const{
                     return *p;
                 }
 
@@ -136,11 +136,29 @@ class Almacen_Rutas{
 
         friend ostream & operator<<(ostream &os, const Almacen_Rutas &AR){
             os << "#Rutas" << endl;
+            
             Almacen_Rutas::const_iterator it;
             for(it = AR.begin() ; it != AR.end() ; ++it)
                 os << (*it).second;
             os << endl;
+            
             return os;
         }
+
+        friend istream & operator>>(istream &is, Almacen_Rutas &AR){
+	      Almacen_Rutas aux;
+	      if (is.peek()=='#'){
+            string a;
+            getline(is,a);
+          }
+	      
+	      Ruta r;
+	      while (is>>r){
+		    aux.Insertar(r);
+	      }
+          AR=aux;
+	      return is;
+	}
+
 };
 

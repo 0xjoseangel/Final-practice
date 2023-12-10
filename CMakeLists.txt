@@ -28,6 +28,27 @@ add_executable(prueba_punto ${BASE_FOLDER}/src/prueba_punto.cpp)
 target_link_libraries(prueba_punto LINK_PUBLIC image)
 endif()
 
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/prueba_pais.cpp)
+add_executable(prueba_pais ${BASE_FOLDER}/src/prueba_pais.cpp)
+target_link_libraries(prueba_pais LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/prueba_paises.cpp)
+add_executable(prueba_paises ${BASE_FOLDER}/src/prueba_paises.cpp)
+target_link_libraries(prueba_paises LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/prueba_ruta.cpp)
+add_executable(prueba_ruta ${BASE_FOLDER}/src/prueba_ruta.cpp)
+target_link_libraries(prueba_ruta LINK_PUBLIC image)
+endif()
+
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/prueba_almacen_rutas.cpp)
+add_executable(prueba_almacen_rutas ${BASE_FOLDER}/src/prueba_almacen_rutas.cpp)
+target_link_libraries(prueba_almacen_rutas LINK_PUBLIC image)
+endif()
+
+
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/ruta_aerea.cpp)
 add_executable(ruta_aerea ${BASE_FOLDER}/src/ruta_aerea.cpp)
 target_link_libraries(ruta_aerea LINK_PUBLIC image)
