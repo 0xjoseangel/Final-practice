@@ -27,6 +27,11 @@ add_executable(ruta_aerea ${BASE_FOLDER}/src/ruta_aerea.cpp)
 target_link_libraries(ruta_aerea LINK_PUBLIC image)
 endif()
 
+if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebapintar.cpp)
+add_executable(pruebapintar ${BASE_FOLDER}/src/pruebapintar.cpp)
+target_link_libraries(pruebapintar LINK_PUBLIC image)
+endif()
+
 # check if Doxygen is installed
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
