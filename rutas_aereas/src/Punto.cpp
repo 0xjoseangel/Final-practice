@@ -9,6 +9,7 @@
 
 #include "Punto.h"
 #include <cassert>
+using namespace std;
 
 Punto::Punto():latitud(0), longitud(0){}
 

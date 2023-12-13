@@ -11,6 +11,7 @@
  */
 
 #include "Punto.h"
+using namespace std;
 
 class Pais{
 
@@ -18,7 +19,6 @@ class Pais{
         Punto p;
         string pais;
         string bandera;
-
     public:
 
     /**

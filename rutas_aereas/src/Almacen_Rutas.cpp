@@ -10,9 +10,13 @@
 #include "Almacen_Rutas.h"
 
 // Métodos de la clase Almacen_Rutas
+Almacen_Rutas::Almacen_Rutas() {}
 
 void Almacen_Rutas::Insertar(const Ruta &R){
-    rutas.insert(pair(R.GetCode(), R));
+    pair<string, Ruta> pair;
+    pair.first=R.GetCode();
+    pair.second=R;
+    rutas.insert(pair);
 }
 
 void Almacen_Rutas::Borrar(const Ruta &R){
@@ -106,5 +110,18 @@ ostream & operator<<(ostream &os, const Almacen_Rutas &AR){
     os << endl;
     return os;
 }
-
+istream & operator>>(istream &is, Almacen_Rutas &AR){
+    Almacen_Rutas aux;
+	if (is.peek()=='#'){
+      string a;
+      getline(is,a);
+    }
+	
+	Ruta r;
+	while (is>>r){
+	  aux.Insertar(r);
+	}
+    AR=aux;
+	return is;
+	}
 

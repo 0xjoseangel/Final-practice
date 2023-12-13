@@ -11,7 +11,6 @@
  */
 
 #include <iostream>
-#include "Pais.h"
 using namespace std;
 
 class Punto{
@@ -113,25 +112,6 @@ class Punto{
          * @return istream& Flujo de entrada.
          */
         friend istream & operator>>(istream &is, Punto &p);
-
-        /**
-         * @brief Sobrecarga del operador >> para el tipo Pais.
-         * 
-         * @param is Flujo de entrada.
-         * @param p Objeto tipo Pais a leer.
-         * @return istream& Flujo de entrada.
-         */
-        friend istream & operator>>(istream &is, Pais &P);
-
-        /**
-         * @brief Sobrecarga del operador << para el tipo Pais.
-         * 
-         * @param os Flujo de salida.
-         * @param p Objeto tipo Pais a escribir.
-         * @return ostream& Flujo de salida.
-         */
-        friend ostream & operator<<(ostream &os, const Pais &P);
-
 
         /**
          * @brief Sobrecarga del operador << para el tipo Punto.
