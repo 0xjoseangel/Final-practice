@@ -34,7 +34,7 @@ int main(){
     p.SetLatitud(num);
     cout << endl << "Nueva longitud: ";
     cin >> num;
-    p.SetLatitud(num);
+    p.SetLongitud(num);
     cout << endl << "Nuevo Punto: " << p << endl;
 
     cout << "¿Es igual que el punto (1.0, 1.0)?" << endl;
