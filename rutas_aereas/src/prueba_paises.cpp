@@ -2,7 +2,16 @@
  * @file prueba_paises.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Este archivo contiene una prueba de la clase _Paises_. 
+ * 
+ * La prueba comienza leyendo una lista de países del usuario con el formato de _paises.txt_.
+ * 
+ * Una vez leídos, se imprimen en la consola.
+ * 
+ * A continuación, se borra Alemania de los países y se vuelven a mostrar los países tras el borrado.
+ * 
+ * Finalmente, se muestra un ejemplo de búsqueda de un país, en este caso Albania.
+ * 
  * @date 2023-12-10
  * 
  */

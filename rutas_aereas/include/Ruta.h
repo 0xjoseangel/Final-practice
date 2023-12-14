@@ -1,12 +1,3 @@
-/**
- * @file Ruta.h
- * @author Jesús Rodríguez
- * @author José Ángel Carretero
- * @brief 
- * @date 2023-12-06
- * 
- */
-
 #ifndef __RUTA__
 #define __RUTA__
 
@@ -14,6 +5,41 @@
 #include <list>
 #include "Punto.h"
 
+/**
+ * @file Ruta.h
+ * @author Jesús Rodríguez
+ * @author José Ángel Carretero
+ * @brief __T.D.A. Ruta__
+ * 
+ * La clase _Ruta_ representa una ruta, la cual queda representada
+ * por una lista de objetos de la clase _Punto_ y un string con el 
+ * código que identifica dicha ruta. A la hora de mostrar una instancia
+ * del T.D.A. Ruta se hace escribiendo el código de la ruta, el número de
+ * puntos de dicha ruta y los puntos que la componen:
+ * 
+ * Un ejemplo podría ser:
+ * 
+ * R1 5 (34.5204,69.2008) (52.5079,13.4261) (7.40665,12.3446) (-0.186596,-78.4305) (40.4005,-3.59165) 
+ * 
+ * @date 2023-12-06
+ * 
+ */
+
+/**
+ * @brief  __T.D.A. Ruta__
+ * 
+ * La clase _Ruta_ representa una ruta, la cual queda representada
+ * por una lista de objetos de la clase _Punto_ y un string con el 
+ * código que identifica dicha ruta. A la hora de mostrar una instancia
+ * del T.D.A. Ruta se hace escribiendo el código de la ruta, el número de
+ * puntos de dicha ruta y los puntos que la componen:
+ * 
+ * Un ejemplo podría ser:
+ * 
+ * R1 5 (34.5204,69.2008) (52.5079,13.4261) (7.40665,12.3446) (-0.186596,-78.4305) (40.4005,-3.59165) 
+ * 
+ * 
+ */
 class Ruta{
 
     private:
@@ -64,7 +90,13 @@ class Ruta{
          * @param cod nuevo código de la Ruta.
          */
         void SetCode(const string &cod);
-
+        
+        /**
+         * @brief Clase iteradora para la clase Ruta
+         * 
+         * Permite iterar sobre sobre los distintos puntos de la ruta.
+         * 
+         */
         class iterator{
            
             private:
@@ -118,6 +150,12 @@ class Ruta{
 
         };
 
+        /**
+         * @brief Clase iteradora para la clase Ruta
+         * 
+         * Permite iterar sobre sobre los distintos puntos de la ruta.
+         * 
+         */
         class const_iterator{
            
             private:

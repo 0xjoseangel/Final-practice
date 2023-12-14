@@ -1,18 +1,37 @@
-/**
- * @file Almacen_Rutas.h
- * @author Jesús Rodríguez
- * @author José Ángel Carretero
- * @brief 
- * @date 2023-12-06
- * 
- */
-
 #ifndef __ALMACEN_RUTAS__
 #define __ALMACEN_RUTAS__
 
 #include "Ruta.h"
 #include <map>
 
+/**
+ * @file Almacen_Rutas.h
+ * @author Jesús Rodríguez
+ * @author José Ángel Carretero
+ * @brief __T.D.A Almacen_Rutas__
+ * 
+ * La clase _Almacen_Rutas_ representa un conjunto de datos del tipo _Ruta_, los cuales son
+ * almacenados en un map.
+ * 
+ * Por tanto, un objeto tipo _Almacen_Rutas_ estará formado por un conjunto de parejas clave-valor,
+ * donde la clave será un string con el código de la ruta y el valor la ruta en sí (objeto del tipo
+ * _Ruta_).
+ * 
+ * @date 2023-12-06
+ * 
+ */
+
+/**
+ * @brief  __T.D.A Almacen_Rutas__
+ * 
+ * La clase _Almacen_Rutas_ representa un conjunto de datos del tipo _Ruta_, los cuales son
+ * almacenados en un map.
+ * 
+ * Por tanto, un objeto tipo _Almacen_Rutas_ estará formado por un conjunto de parejas clave-valor,
+ * donde la clave será un string con el código de la ruta y el valor la ruta en sí (objeto del tipo
+ * _Ruta_).
+ * 
+ */
 class Almacen_Rutas{
 
     private:
@@ -49,6 +68,12 @@ class Almacen_Rutas{
          */
         Ruta GetRuta(const string &a);
 
+        /**
+         * @brief Clase iteradora para la clase Almacen_Rutas
+         * 
+         * Permite iterar sobre sobre las distintas rutas del almacén.
+         * 
+         */
         class iterator{
            
             private:
@@ -102,6 +127,13 @@ class Almacen_Rutas{
 
         };
 
+
+        /**
+         * @brief Clase iteradora constante para la clase Almacen_Rutas
+         * 
+         * Permite iterar sobre sobre las distintas rutas del almacén.
+         * 
+         */
         class const_iterator{
            
             private:

@@ -2,7 +2,7 @@
  * @file Almacen_Rutas.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Fichero con definiciones para los métodos primitivos de la clase Almacen_Rutas.
  * @date 2023-12-06
  * 
  */
@@ -68,11 +68,11 @@ Almacen_Rutas::const_iterator & Almacen_Rutas::const_iterator::operator--(){
 }
 
 bool Almacen_Rutas::const_iterator::operator==(const const_iterator &it) const{
-	return this->p == it.p;
+	return (this->p == it.p);
 }
 
 bool Almacen_Rutas::const_iterator::operator!=(const const_iterator &it) const{
-	return this->p != it.p;
+	return (this->p != it.p);
 }
 
 // Resto de métodos de la clase Almacen_Rutas

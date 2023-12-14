@@ -2,7 +2,7 @@
  * @file Paises.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Fichero con definiciones para los métodos primitivos de la clase Paises.
  * @date 2023-12-04
  * 
  */
@@ -62,11 +62,11 @@ Paises::const_iterator & Paises::const_iterator::operator--(){
 }
 
 bool Paises::const_iterator::operator==(const const_iterator &it) const{
-	return this->p == it.p;
+	return (this->p == it.p);
 }
 
 bool Paises::const_iterator::operator!=(const const_iterator &it) const{
-	return this->p != it.p;
+	return (this->p != it.p);
 }
 
 // Resto de métodos de la clase Paises

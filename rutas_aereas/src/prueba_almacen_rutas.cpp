@@ -2,7 +2,18 @@
  * @file prueba_ruta.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Este archivo contiene una prueba de la clase _Almacen_Rutas_. 
+ * 
+ * La prueba comienza leyendo un Almacen_Rutas del archivo pasado como argumento con formato _almacen_rutas.txt_.
+ * 
+ * Una vez leído se imprimen en la consola todas las rutas almacenadas.
+ * 
+ * A continuación, se pide que se introduzca una ruta por consola, la cual es borrada y el resultado del almacén sin la ruta borrada
+ * se muestra por consola.
+ * 
+ * Finalmente, se pide que se introduzca un código de ruta y se imprime la ruta identificada con dicho código.
+ * 
+ * _
  * @date 2023-12-10
  * 
  */

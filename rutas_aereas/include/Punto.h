@@ -1,18 +1,34 @@
 #ifndef __PUNTO__
 #define __PUNTO__
 
+#include <iostream>
+using namespace std;
+
 /**
  * @file Punto.h
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief __T.D.A Punto__
+ * 
+ * La clase _Punto_ representa un punto en el plano cartesiano. 
+ * 
+ * Los puntos se definen por dos coordenadas: latitud y longitud.
+ * 
+ * Un ejemplo de punto podría ser: (2.0987, -34.0984)
+ * 
  * @date 2023-12-04
  * 
  */
 
-#include <iostream>
-using namespace std;
-
+/**
+ * @brief La clase _Punto_ representa un punto en el plano cartesiano. 
+ * 
+ * Los puntos se definen por dos coordenadas: latitud y longitud.
+ * 
+ * Un ejemplo de punto podría ser: (2.0987, -34.0984)
+ * 
+ * 
+ */
 class Punto{
     private:
         double latitud, longitud;
@@ -30,7 +46,7 @@ class Punto{
          * 
          * @param l Latitud del punto.
          * @param L Longitud del punto.
-         * @param d 
+         * @param d String que podría ser usado por la clase _Pais_
          * @pre -90<=l<=90 && -180<=L<=180
          */
         Punto(double l, double L, const string &d);

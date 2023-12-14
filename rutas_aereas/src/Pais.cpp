@@ -2,7 +2,7 @@
  * @file Pais.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Fichero con definiciones para los métodos primitivos de la clase Pais.
  * @date 2023-12-04
  * 
  */
@@ -21,16 +21,16 @@ string Pais::GetPais() const {return pais;}
 string Pais::GetBandera() const {return bandera;}
 
 bool Pais::operator<(const Pais &p) const{
-    return this->GetPais() < p.GetPais();
+    return (this->GetPais() < p.GetPais());
 }
 
 bool Pais::operator==(const Pais &p) const{
-    return this->GetPunto() == p.GetPunto() && this->GetPais() == p.GetPais() &&
-        this->GetBandera() == p.GetBandera();
+    return (this->GetPunto() == p.GetPunto() && this->GetPais() == p.GetPais() &&
+        this->GetBandera() == p.GetBandera());
 }
 
 bool Pais::operator==(const Punto &P) const{
-    return this->GetPunto() == p;
+    return (this->GetPunto() == p);
 }
 
 istream & operator>>(istream & is, Pais & P){

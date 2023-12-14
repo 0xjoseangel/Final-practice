@@ -1,18 +1,38 @@
 #ifndef __PAIS__
 #define __PAIS__
 
+#include "Punto.h"
+using namespace std;
+
 /**
  * @file Pais.h
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief __T.D.A Pais__
+ * 
+ * La clase _Pais_ representa un país. 
+ * Un país se define por su punto de ubicación, su nombre y la bandera que lo representa.
+ * 
+ * Por ejemplo, el país Francia podría estar formado por un objeto de la clase _Punto_ con ubicación
+ * y dos strings, uno con el nombre del país ("Francia") y otro con el nombre de un archivo que contenga
+ * una imagen con la bandera francesa.
+ * 
  * @date 2023-12-04
  * 
  */
 
-#include "Punto.h"
-using namespace std;
-
+/**
+ * @brief __T.D.A Pais__
+ * 
+ * La clase _Pais_ representa un país. 
+ * Un país se define por su punto de ubicación, su nombre y la bandera que lo representa.
+ * 
+ * Por ejemplo, el país Francia podría estar formado por un objeto de la clase _Punto_ con ubicación
+ * y dos strings, uno con el nombre del país ("Francia") y otro con el nombre de un archivo que contenga
+ * una imagen con la bandera francesa.
+ * 
+ * 
+ */
 class Pais{
 
     private:

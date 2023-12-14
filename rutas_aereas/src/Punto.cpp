@@ -2,7 +2,7 @@
  * @file Punto.cpp
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief Fichero con definiciones para los métodos primitivos de la clase Punto.
  * @date 2023-12-04
  * 
  */

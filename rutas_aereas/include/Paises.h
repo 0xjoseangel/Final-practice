@@ -1,18 +1,29 @@
 #ifndef __PAISES__
 #define __PAISES__
 
+#include "Pais.h"
+#include <set>
+
 /**
  * @file Paises.h
  * @author Jesús Rodríguez
  * @author José Ángel Carretero
- * @brief 
+ * @brief __T.D.A. Paises__
+ * 
+ * La clase _Paises_ representa un conjunto de paises, los cuales quedan representados
+ * mediante un set de objetos de la clase _Pais_.
+ *  
  * @date 2023-12-04
  * 
  */
 
-#include "Pais.h"
-#include <set>
-
+/**
+ * @brief __T.D.A. Paises__
+ * 
+ * La clase _Paises_ representa un conjunto de paises, los cuales quedan representados
+ * mediante un set de objetos de la clase _Pais_.
+ * 
+ */
 class Paises{
 
     private:
@@ -40,6 +51,12 @@ class Paises{
          */
         void Borrar(const Pais &p);
 
+        /**
+         * @brief Clase iteradora para la clase Paises.
+         * 
+         * Permite iterar sobre sobre los distintos países del conjunto de países.
+         * 
+         */
         class iterator{
            
             private:
@@ -91,7 +108,12 @@ class Paises{
                 friend class Paises;
 
         };
-
+         /**
+         * @brief Clase iteradora para la clase Paises.
+         * 
+         * Permite iterar sobre sobre los distintos países del conjunto de países.
+         * 
+         */
         class const_iterator{
            
             private:
