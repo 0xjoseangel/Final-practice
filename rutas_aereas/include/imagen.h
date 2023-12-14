@@ -140,7 +140,9 @@ public:
      * @param I Referencia a la imagen que se va a copiar.
      */
     Imagen(const Imagen & I);
-   
+    
+    void AplicarMascara(const Imagen &mascara);
+    
     /**
      * @brief Operador de asignación de la clase Imagen.
      *

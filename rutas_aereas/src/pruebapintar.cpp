@@ -74,7 +74,7 @@ Imagen Rota(const Imagen & Io,double angulo){
 }
 
 void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mindisf,int mindisc){
-      
+      Tipo_Pegado tp = BLENDING;
       int fila,col;
       if (abs(f2-f1)>=mindisf || abs(c2-c1)>=mindisc){ 
 	
@@ -94,16 +94,16 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
 	  double angulo = atan2((f2-f1),(c2-c1));
 	  Imagen Irota=Rota(avion,angulo);
 	
-	  I.PutImagen(fila,col,Irota);//pensar si debe ser opaco o blending
+	  I.PutImagen(fila,col,Irota, tp);//pensar si debe ser opaco o blending
 	  
 	   angulo = atan2((f2-fila),(c2-col));
 	  Irota=Rota(avion,angulo);
 	
-	  I.PutImagen(f2,c2,Irota);//pensar si debe ser opaco o blending
+	  I.PutImagen(f2,c2,Irota, tp);//pensar si debe ser opaco o blending
 	  angulo = atan2((fila-f1),(col-c1));
 	  Irota=Rota(avion,angulo);
 	
-	  I.PutImagen(f1,c1,Irota);//pensar si debe ser opaco o blending
+	  I.PutImagen(f1,c1,Irota,tp);//pensar si debe ser opaco o blending
 	 
       
       }
@@ -123,19 +123,23 @@ int main(int argc, char *argv[]) {
 
     // Supongamos coordenadas específicas para pintar el avión
     int f1 = 40;
-    int f2 = 20;
+    int f2 = 100;
     int c1 = 30;
-    int c2 = 40;
+    int c2 = 150;
 
     // Supongamos que tienes la imagen del avión cargada previamente
-    Imagen avion;
-    avion.LeerImagen("./datos/imagenes/aviones/avion1.ppm");
-
-    int mindisf = 5;
-    int mindisc = 5;
+    Imagen avion, mascaraAvion;
+    avion.LeerImagen("./datos/imagenes/aviones/avion2.ppm");
+    mascaraAvion.LeerImagen("./datos/imagenes/aviones/mascara_avion2.pgm");
+    Tipo_Pegado tp = OPACO;
+    Imagen avionRotado;
+    avionRotado.AplicarMascara(mascaraAvion);
+    I.PutImagen(f1,f2,avionRotado,tp);
+    int mindisf = 10;
+    int mindisc = 10;
 
     // Llamada a la función Pintar
-    Pintar(f1, f2, c1, c2, I, avion, mindisf, mindisc);
+    // Pintar(f1, f2, c1, c2, I, avion, mindisf, mindisc);
 
     // Guarda la imagen resultante
     I.EscribirImagen(argv[2]);

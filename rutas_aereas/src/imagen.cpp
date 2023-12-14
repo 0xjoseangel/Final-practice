@@ -65,6 +65,25 @@ Imagen::Imagen(const Imagen & I) {
     assert (this != &I);
     Copiar(I);
 }
+void Imagen::AplicarMascara(const Imagen &mascara) {
+    // Verificar que las dimensiones de la imagen y la máscara coincidan
+    if (nf == mascara.num_filas() && nc == mascara.num_cols()) {
+        // Aplicar la máscara a la imagen actual
+        for (int i = 0; i < nf; ++i) {
+            for (int j = 0; j < nc; ++j) {
+                // Si la máscara es transparente en esta posición, hacer el píxel transparente
+                if (mascara(i, j).transp == 0) {
+                    data[i][j].transp = 0;
+                }
+                // De lo contrario, mantener el valor de la imagen original
+            }
+        }
+    } else {
+        cerr << "Error: Las dimensiones de la imagen y la máscara no coinciden." << endl;
+        // Puedes lanzar una excepción o tomar otra acción según tus necesidades.
+        // Aquí, simplemente imprimo un mensaje de error en la consola.
+    }
+}
 
 Imagen & Imagen::operator=(const Imagen & I){
     if (this != &I){
