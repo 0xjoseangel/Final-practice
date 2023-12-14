@@ -29,7 +29,7 @@ Ruta Almacen_Rutas::GetRuta(const string &a){
 
 // Métodos de la clase iterator
 
-const pair<string, Ruta> & Almacen_Rutas::iterator::operator*() const{
+const pair<string, Ruta> Almacen_Rutas::iterator::operator*() const{
 	return *p;
 }
 
@@ -53,7 +53,7 @@ bool Almacen_Rutas::iterator::operator!=(const iterator &it) const{
 
 // Métodos de la clase const_iterator
 
-const pair<string, Ruta> & Almacen_Rutas::const_iterator::operator*() const{
+const pair<string, Ruta> Almacen_Rutas::const_iterator::operator*() const{
 	return *p;
 }
 
