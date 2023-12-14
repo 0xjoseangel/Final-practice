@@ -23,6 +23,7 @@ int main(int argc, char * argv[]){
       cout<<"4.-Fichero con el almacen de rutas"<<endl;
       cout<<"5.- Nombre de la imagen con el avion"<<endl;
       cout<<"6.- Nombre de la imagen de la mascara del avion"<<endl;
+      return 0;
   }
       Paises Pses;
   ifstream f (argv[1]);
