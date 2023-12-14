@@ -62,7 +62,7 @@ class Almacen_Rutas{
                  * 
                  * @return const pair<string, Ruta> & referencia al objeto al que apunta el iterador.
                  */
-                const pair<string, Ruta> & operator*() const;
+                const pair<string, Ruta> operator*() const;
 
                 /**
                  * @brief Sobrecarga del operador ++ para el tipo iterator.
@@ -115,7 +115,7 @@ class Almacen_Rutas{
                  * @return const pair<string,Ruta>& referencia constante al objeto
                  *  al que apunta el iterador.
                  */
-                const pair<string,Ruta> & operator*() const;
+                const pair<string,Ruta> operator*() const;
 
                 /**
                  * @brief Sobrecarga del operador ++ para el tipo const_iterator.
