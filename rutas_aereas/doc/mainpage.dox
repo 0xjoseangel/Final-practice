@@ -1,0 +1,68 @@
+/*! \mainpage Practica Final: Rutas Aéreas
+
+@image html portada.png
+
+# Introducción
+
+Se desea crear un software para ayudar a un compañía aérea poder visualizar sus rutas (sobre
+los países que pasa) . En concreto la empresa aérea querrá visualizar en un mapa del mundo
+rutas con un código determinado, p.ej. R3. Nuestro programa debería obtener una imagen y al
+mismo tiempo la secuencia de países que atraviesa. (ver figura 1). En pantalla deberá
+aparecer: Canadá Estados Unidos Perú España China Australia Japón Rusia
+
+@image html ej_intro.png
+
+Para poder visualizar la ruta aérea se pintarán las banderas de los países por los que pasa y
+además se marcará la ruta con secuencias de aviones que se orientan según la línea que une
+dos países.
+
+
+# Tareas a realizar
+
+
+## Tarea 1: Rotar una Imagen
+
+Para rotar una imagen, nos servimos del módulo Imagen. La fórmula matemática usada para calcular
+la rotación de la imagen es la siguiente:
+
+@image html tarea1.png
+
+El programa _pruebarotacion_ se encarga de realizar un ejemplo de rotación de una imagen.
+
+`__pruebarotacion__ \<FicheroImagenEntrada>\ \<ÁnguloDeRotación>\ \<FicheroImagenSalida>\`
+@param <FicheroImagenEntrada> Imagen que se quiere rotar
+@param <ÁnguloDeRotación> Ángulo de rotación a aplicar en la imagen.
+@param <FicheroImagenSalida> Fichero donde se guarda la imagen rotada.
+
+
+## Tarea 2: Pegar una imagen
+
+Para esta tarea también nos servimos del módulo Imagen. En ella se pega la imagen de un avión
+sobre el mapa usando una máscara para poder quitar el fondo de la imagen del avión.
+
+Un ejemplo de pegado podría ser el siguiente:
+
+@image html tarea2.png
+
+El programa _pruebapegado_ es un ejemplo de pegado de una imagen sobre otra.
+
+`__pruebapegado__ \<FicheroImagenFondo>\ \<FicheroImagenPegar>\ \<FicheroImagenDestino>\ \<FicheroMascara>\ \<Fila>\ \<Columna>\ \<TipoPegado>\`
+
+@param <FichImagenFondo> Imagen de fondo sobre la que se pega
+@param <FicheroImagenPegar> Imagen a pegar sobre el fondo
+@param <FicheroImagenDestino> Fichero donde se guarda la imagen final
+@param <FicheroMascara> Máscara de la imagen a pegar
+@param <Fila> Fila donde se pega la imagen
+@param <Columna> Columna donde se pega la imagen
+@param <TipoPegado> 0 si se quiere un pegado opaco, 1 si se quiere un blending
+
+
+## Tarea 3: Rutas Aereas
+
+
+
+@author José Ángel Carretero
+@author Jesús Rodriguez
+@date Diciembre 2023
+
+*/

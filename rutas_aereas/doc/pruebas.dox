@@ -1,0 +1,158 @@
+/*! \page Pruebas
+
+# Introducción
+
+En esta página se explican los distintos ejecutables de prueba realizados a lo largo de la práctica
+para comprobar el correcto funcionamiento de cada una de las clases realizadas hasta llegar al ejecutable
+final, el rutas_aereas.
+
+@image html ej_intro.png
+
+# Pruebas realizadas
+
+
+## prueba_punto
+
+ La prueba comienza leyendo un punto del usuario. El punto se lee como una tupla de dos coordenadas, una latitud y una longitud.
+ 
+ Una vez leído el punto, se imprime en la consola.
+  
+ A continuación, se cambia la latitud y la longitud del punto. Las nuevas coordenadas se leen del usuario.
+ 
+ El punto modificado se imprime en la consola.
+ 
+ Finalmente, se compara el punto modificado con un punto de coordenadas (1, 1).
+ Si los dos puntos son iguales, se imprime "Si" en la consola. En caso contrario, se imprime "No".
+ 
+ __Ejemplo de uso:__
+
+ __./prueba_punto__
+ 
+ Introduzca un punto( (latitud, longitud)): (0.0, 0.0)
+ 
+ El punto es el: (0.0, 0.0)
+ 
+ Latitud: 0.0
+ 
+ Longitud: 0.0
+ 
+ Cambia la latitud y longitud.
+ 
+ Nueva latitud: 1.0
+ 
+ Nueva longitud: 1.0
+ 
+ Nuevo Punto: (1.0, 1.0)
+ 
+ ¿Es igual que el punto (1.0, 1.0)?
+ 
+ Si
+
+
+ ## prueba_pais
+
+ La prueba comienza leyendo un país del usuario. El país se lee como una tupla de tres datos, una latitud, una longitud y un nombre.
+ 
+ Una vez leído el país, se imprime en la consola.
+ 
+ A continuación, se compara el país con un punto de coordenadas (1, 1).
+ Si los dos puntos son iguales, se imprime "Si" en la consola. En caso contrario, se imprime "No".
+ 
+ Finalmente, se compara el país con un país con parámetros _1.0 1.0 francia francia_.
+ 
+ __Ejemplo de uso:__
+
+ __./prueba_pais__
+ 
+ Introduzca un pais( latitud longitud nombre bandera): 1.0 1.0 España España 
+
+ El pais es el: (1,1) España España
+ 
+ Pais: España
+
+ Bandera: España
+ 
+ ¿Es igual que el punto (1.0, 1.0)?
+ 
+ Sí
+ 
+ ¿Es igual que el país _1.0 1.0 francia francia_?
+ 
+ No
+
+
+## prueba_paises
+
+Este archivo contiene una prueba de la clase _Paises_. 
+ 
+ La prueba comienza leyendo una lista de países del usuario con el formato de _paises.txt_.
+ 
+ Una vez leídos, se imprimen en la consola.
+ 
+ A continuación, se borra Alemania de los países y se vuelven a mostrar los países tras el borrado.
+ 
+ Finalmente, se muestra un ejemplo de búsqueda de un país, en este caso Albania.
+
+__./prueba_paises__
+
+
+## prueba_ruta
+
+ La prueba comienza leyendo una ruta del usuario. El ruta se lee como un código,
+ el número de puntods de la ruta y los puntos de la ruta.
+ 
+ Una vez leídos se imprimen en la consola la ruta, el número de puntos de la misma y su código.
+ 
+ A continuación, se borra el punto (7.406652727545182,12.344585699999925) de la ruta y se muestra
+ la ruta tras el borrado de dicho punto.
+  
+ Posteriormente, se muestra un ejemplo de búsqueda de un punto, en este caso el (-0.18659558628491132,-78.4305382).
+  
+ Finalmente se introduce una nueva ruta y se compara con la que ya teníamos para ver si son iguales o no.
+  
+ __Ejemplo de uso:__
+
+ __./prueba_ruta__
+  
+ Introduzca una Ruta (codigo nºpuntos puntos): R1 5 (34.520418555522845,69.20082090000005) (52.50786264022465,13.426141949999987) 
+ (7.406652727545182,12.344585699999925) (-0.18659558628491132,-78.4305382) (40.40051528912146	,-3.5916460749999635)
+ 
+ La ruta es: R1 5 (34.5204,69.2008) (52.5079,13.4261) (7.40665,12.3446) (-0.186596,-78.4305) (40.4005,-3.59165) 
+ 
+ Nº de puntos: 5
+  
+ Código: R1
+  
+ Borrar el punto (7.406652727545182,12.344585699999925)
+  
+ Ruta con el punto borrado: R1 4 (34.5204,69.2008) (52.5079,13.4261) (-0.186596,-78.4305) (40.4005,-3.59165) 
+ 
+ Búsqueda del punto (-0.18659558628491132,-78.4305382): (-0.186596,-78.4305)
+ 
+ Introduce otra ruta: R3	5	 (17.246400332673307,	-19.670602940234403) (4.283635422564345,-74.22403995000002) (51.528868434293244,	-0.10159864999991441)
+ (62.88647107195116,61.551173617626986) (37.943768420529985,104.13611175000005)
+ 
+ ¿Son iguales? No
+
+
+ ## prueba_almacen_ruta
+
+ La prueba comienza leyendo un Almacen_Rutas del archivo pasado como argumento con formato _almacen_rutas.txt_.
+  
+ Una vez leído se imprimen en la consola todas las rutas almacenadas.
+  
+ A continuación, se pide que se introduzca una ruta por consola, la cual es borrada y el resultado del almacén sin la ruta borrada
+ se muestra por consola.
+  
+ Finalmente, se pide que se introduzca un código de ruta y se imprime la ruta identificada con dicho código.
+
+ __./prueba_almacen_rutas \<almacen_rutas.txt>\__
+
+ @param <almacen_rutas.txt> Fichero con el formato indicado en el fichero almacen_rutas.txt
+  
+  
+@author José Ángel Carretero
+@author Jesús Rodriguez
+@date Diciembre 2023
+
+*/
