@@ -1,11 +1,20 @@
+/**
+ * @file pruebapegado.cpp
+ * @author Jesús Rodríguez
+ * @author José Ángel Carretero
+ * @brief Este programa utiliza la clase Imagen para cargar una imagen desde un archivo, rota la imagen
+ * alrededor de su centro según un ángulo especificado y guarda la imagen resultante en un nuevo archivo.
+ * 
+ * @date 2023-12-20
+ * 
+ */
+
 #include "imagen.h"
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
 
 using namespace std;
-
-
 
 int main(int argc, char * argv[]){
   if (argc!=8){

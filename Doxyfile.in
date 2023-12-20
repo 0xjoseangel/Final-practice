@@ -4,3 +4,9 @@ INPUT                  = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/include @CMAKE_SOURCE_
 GENERATE_LATEX         = NO
 IMAGE_PATH             = @CMAKE_SOURCE_DIR@/@BASE_FOLDER@/doc
 EXTRACT_PRIVATE        = NO
+
+GENERATE_TREEVIEW      = YES # required!
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
+HTML_EXTRA_STYLESHEET  = ./doc_doxygen/Estilo/doxygen-awesome.css 
+HTML_COLORSTYLE        = LIGHT # required with Doxygen >= 1.9.5

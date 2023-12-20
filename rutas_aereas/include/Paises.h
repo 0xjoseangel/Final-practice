@@ -205,10 +205,10 @@ class Paises{
          * @brief Método para buscar un punto en nuestro set<Paises>.
          * 
          * @param p Punto a buscar.
-         * @return const_iterator que apunta al país del punto encontrado o 
+         * @return iterator que apunta al país del punto encontrado o 
          * end() si no se encuentra.
          */
-        const_iterator find(const Punto &p);
+        iterator find(const Punto &p);
 
         /**
          * @brief Sobrecarga del operador >> para el tipo Paises.

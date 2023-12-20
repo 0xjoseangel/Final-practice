@@ -118,13 +118,13 @@ Paises::iterator Paises::find(const Pais &p){
 	return it;
 }
 
-Paises::const_iterator Paises::find(const Punto &p){
-	const_iterator it;
+Paises::iterator Paises::find(const Punto &p){
+	iterator it;
 	for (it.p=datos.begin(); it.p!=datos.end(); ++it.p){
 		if ((it.p)->GetPunto() == p)
 			return it;
 	}
-	const_iterator fin;
+	iterator fin;
 	fin.p=datos.end();
 	return fin; 
 }

@@ -128,21 +128,21 @@ void Imagen::LeerImagen(const char * nombre,const string &nombremascara){
       aux = new unsigned char [f*c*3];
       LeerImagenPPM (nombre, f,c,aux);
       if (nombremascara!=""){
-	int fm,cm;
-	LeerTipoImagen(nombremascara.c_str(), fm, cm);
-	aux_mask = new unsigned char [fm*cm];
-	LeerImagenPGM(nombremascara.c_str(), fm,cm,aux_mask);
+        int fm,cm;
+        LeerTipoImagen(nombremascara.c_str(), fm, cm);
+        aux_mask = new unsigned char [fm*cm];
+        LeerImagenPGM(nombremascara.c_str(), fm,cm,aux_mask);
       }
       else{
-	aux_mask=0;
+	    aux_mask=0;
       }	
       
       
       Imagen I(f,c);
       int total = f*c*3;
       for (int i=0;i<total;i+=3){
-	   int posi = i /(c*3);
-	   int posj = (i%(c*3))/3;
+        int posi = i /(c*3);
+        int posj = (i%(c*3))/3;
 	//   cout<<posi<<" " <<posj<<endl;
 	     I.data[posi][posj].r=aux[i];
 	     I.data[posi][posj].g=aux[i+1];

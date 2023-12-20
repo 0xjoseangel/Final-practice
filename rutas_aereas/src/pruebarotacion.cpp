@@ -1,3 +1,15 @@
+/**
+ * @file pruebarotacion.cpp
+ * @author Jesús Rodríguez
+ * @author José Ángel Carretero
+ * @brief Este programa utiliza la clase Imagen para cargar una imagen de fondo y una imagen a pegar junto con su máscara.
+ * Luego, pega la imagen sobre el fondo en una posición específica, utilizando la opción de pegado opaco o blending.
+ * El resultado se guarda en un nuevo archivo de imagen.
+ * 
+ * 
+ * @date 2023-12-20
+ * 
+ */
 #include "imagen.h"
 #include <iostream>
 #include <cstdlib>
