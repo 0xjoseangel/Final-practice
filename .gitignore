@@ -3,7 +3,7 @@ CMakeDoxyfile.in
 CMakeDoxygenDefaults.cmake
 CMakeFiles/
 Doxyfile
-doc_doxygen/
+doc_doxygen/html
 .vscode/
 Makefile
 cmake_install.cmake
