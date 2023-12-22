@@ -58,7 +58,87 @@ El programa _pruebapegado_ es un ejemplo de pegado de una imagen sobre otra.
 
 
 ## Tarea 3: Rutas Aereas
+En esta tarea final, se busca mejorar la representación visual de las rutas aéreas sobre un mapa del mundo en el programa
+`ruta_aerea.cpp`. Se propone la inclusión de imágenes representativas de aviones en la trayectoria de vuelo, así como la
+superposición de banderas de los países por los que pasa la ruta.
 
+### Descripción de la Tarea
+
+Para llevar a cabo esta tarea, se deben seguir los siguientes pasos:
+
+1. **Incorporar una imagen del avión en la trayectoria de vuelo:**
+   - Utilizar la función `Pintar` para pintar la trayectoria del avión entre dos puntos dados en la ruta.
+   - Ajustar la función `Pintar` para que tome en cuenta la distancia mínima en filas (`mindisf`) y la
+    distancia mínima en columnas (`mindisc`). Estas distancias determinarán cuándo se activa el pintado de la trayectoria del avión.
+
+2. **Superponer la bandera de cada país en su posición correspondiente:**
+   - Obtener las coordenadas en la imagen del mapa para cada país en la ruta.
+   - Superponer la bandera del país en la posición calculada en el mapa.
+
+3. **Actualizar la posición del avión:**
+   - Utilizar la función `Rota` para actualizar la posición del avión de acuerdo con la dirección de vuelo en cada punto de la ruta.
+
+4. **Generar una imagen resultante y guardarla en un archivo:**
+   - Al finalizar la visualización de la ruta seleccionada, generar una imagen resultante que incluya la representación visual de la ruta con avión y banderas.
+   - Guardar la imagen en un archivo con el mismo código de la ruta y la extensión ".ppm".
+
+### Uso del Programa
+
+El programa espera recibir los siguientes parámetros de línea de comandos:
+
+```
+./ruta_aerea <FicheroPaises> <ImagenMapa> <DirectorioBanderas> <FicheroRutas> <ImagenAvion> <MascaraAvion>
+```
+
+@param <FicheroPaises> Archivo con la información de los países.
+@param <ImagenMapa> Nombre de la imagen con el mapa del mundo.
+@param <DirectorioBanderas> Directorio que contiene las imágenes de las banderas de los países.
+@param <FicheroRutas> Archivo con el almacenamiento de rutas.
+@param <ImagenAvion> Nombre de la imagen con la representación del avión.
+@param <MascaraAvion> Nombre de la imagen de la máscara del avión.
+ 
+
+### Ejemplo de Uso
+
+```
+./ruta_aerea datos/paises.txt datos/imagenes/mapas/mapa1.ppm datos/imagenes/banderas/ datos/almacen_rutas.txt datos/imagenes/aviones/avion1.ppm datos/imagenes/aviones/mascara_avion1.pgm
+```
+Esta entrada, da como salida en el terminal lo siguiente:
+
+```
+Las rutas: 
+#Rutas
+R1 5 (34.5204,69.2008) (52.5079,13.4261) (7.40665,12.3446) (-0.186596,-78.4305) (40.4005,-3.59165) 
+R2 8 (58.6954,-96) (35.0869,-103.723) (-12.0553,-77.0452) (40.4005,-3.59165) (37.9438,104.136) (-27.7871,133.281) (35.6735,139.71) (62.8865,61.5512) 
+R3 5 (17.2464,-19.6706) (4.28364,-74.224) (51.5289,-0.101599) (62.8865,61.5512) (37.9438,104.136) 
+R4 11 (14.4225,-87.6343) (48.8589,2.34706) (24.7259,46.8225) (58.6954,-96) (35.0869,-103.723) (-12.0553,-77.0452) (40.4005,-3.59165) (37.9438,104.136) (-27.7871,133.281) (35.6735,139.71) (62.8865,61.5512) 
+R5 5 (52.7608,8.74761) (-19.0519,29.1528) (-34.6159,-58.4333) (58.6954,-96) (52.7608,8.74761) 
+
+Dime el codigo de una ruta
+R1
+Afganistan Alemania Camerun Ecuador Espana 
+```
+Y genera la siguiente imagen:
+@image html R1.png
+Este código proporciona una base para la mejora visual de la representación de rutas aéreas. Asegúrate
+de contar con las imágenes y archivos necesarios para ejecutar el programa de manera exitosa.
+
+@warning Este programa presenta una limitación en la lectura de la letra **ñ**. En caso de que la ruta planificada incluya países que contengan 
+esta letra, como **España**, podría generar un `segmentation fault`. Por lo tanto, se recomienda evitar que la ruta pase por países con 
+esta particularidad o modificar los nombres correspondientes en la imagen de la bandera y en el archivo que almacena las coordenadas de 
+los países (`paises.txt`) para evitar posibles problemas.
+
+## Observaciones y Procedimientos
+
+### Compilación del Programa y Generación de Documentación:
+Para llevar a cabo la compilación del programa, se recomienda ejecutar el comando `cmake CMakeLists.txt` en la terminal, seguido de la ejecución 
+del comando `make`.
+
+Estos dos pasos proporcionarán todos los ejecutables necesarios, así como la documentación asociada.
+
+@note Al ejecutar el comando `make`, se generará la documentación en formato HTML con el estilo clásico de Doxygen. Se sugiere adicionalmente 
+ejecutar la orden `doxygen Doxyfile` para aplicar el estilo proporcionado en la carpeta `doc_doxygen`. Esta acción mejora la experiencia de 
+usuario al navegar por la documentación, ofreciendo una presentación más pulida y estructurada.
 
 
 @author José Ángel Carretero
